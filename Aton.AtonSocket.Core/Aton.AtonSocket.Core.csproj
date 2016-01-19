@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C02625C3-A62B-4F15-BFA8-F17A4AC5F9B8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Aton.AtonSocket.Core</RootNamespace>
+    <AssemblyName>Aton.AtonSocket.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\AtonServiceElement.cs" />
+    <Compile Include="Config\AtonSocketType.cs" />
+    <Compile Include="Config\ConnectFilterElement.cs" />
+    <Compile Include="Config\MessageProcessor.cs" />
+    <Compile Include="Config\RequestHandlerElement.cs" />
+    <Compile Include="Config\ServerConfig.cs" />
+    <Compile Include="EventArgs\ServerStateChangedEventArgs.cs" />
+    <Compile Include="EventArgs\SessionCloseEventArgs.cs" />
+    <Compile Include="EventArgs\SessionConnectdEventArgs.cs" />
+    <Compile Include="EventArgs\SessionCreatedEventArgs.cs" />
+    <Compile Include="Exceptions\FilterErrorException.cs" />
+    <Compile Include="Exceptions\MsgHandlerException.cs" />
+    <Compile Include="Exceptions\ProtocolException.cs" />
+    <Compile Include="Exceptions\RequestHandlerException.cs" />
+    <Compile Include="Exceptions\SocketServerErrorException.cs" />
+    <Compile Include="Filter\IConnectFilter.cs" />
+    <Compile Include="Filter\IMsgFilter.cs" />
+    <Compile Include="Filter\IRequestFilter.cs" />
+    <Compile Include="Handler\IMsgHandler.cs" />
+    <Compile Include="Handler\IRequestHandler.cs" />
+    <Compile Include="ILogger.cs" />
+    <Compile Include="IMsg.cs" />
+    <Compile Include="IMsgProtocol.cs" />
+    <Compile Include="IRequestMsg.cs" />
+    <Compile Include="IRequestProtocol.cs" />
+    <Compile Include="ISocketServer.cs" />
+    <Compile Include="ISocketSession.cs" />
+    <Compile Include="Loader\ReflectionLoader.cs" />
+    <Compile Include="Loggers\ConsoleLogger.cs" />
+    <Compile Include="Loggers\LoggerLevelE.cs" />
+    <Compile Include="MsgBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProtocolBase.cs" />
+    <Compile Include="RequestMsgBase.cs" />
+    <Compile Include="ServerMode.cs" />
+    <Compile Include="ServerStatus.cs" />
+    <Compile Include="Utility\AsyncUtility.cs" />
+    <Compile Include="Utility\ReflectUtility.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Config\ConfigSample.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
